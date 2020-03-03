@@ -1,10 +1,11 @@
-﻿using $safeprojectname$.Domains;
+﻿
+using Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace $safeprojectname$.Interfaces
+namespace Interfaces
 {
     interface IJogosRepository
     {

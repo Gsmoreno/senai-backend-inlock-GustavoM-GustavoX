@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using $safeprojectname$.Domains;
-using $safeprojectname$.Interfaces;
-using $safeprojectname$.Repositories;
+using Domains;
+using Interfaces;
+using Repositories;
 
-namespace $safeprojectname$.Controllers
+namespace Controllers
 {
     [Produces("application/json")]
 

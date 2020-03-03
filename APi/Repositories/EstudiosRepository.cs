@@ -1,12 +1,12 @@
-﻿using $safeprojectname$.Domains;
-using $safeprojectname$.Interfaces;
+﻿using Domains;
+using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace $safeprojectname$.Repositories
+namespace Repositories
 {
     public class EstudiosRepository : IEstudiosRepository
     {
