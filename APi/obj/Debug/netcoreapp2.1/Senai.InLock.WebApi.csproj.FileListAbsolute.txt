@@ -12,3 +12,5 @@ C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\bin\Debu
 C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.dll
 C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.pdb
+C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.xml
+C:\Users\48531730805\Desktop\senai-backend-inlock-GustavoM-GustavoX\APi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.xml

@@ -22,5 +22,10 @@ namespace Domains
         public int IdTipoUsuario { get; set; }
 
         public TipoUsuariosDomain TipoUsuario { get; set; }
+
+        public UsuariosDomain()
+        {
+            this.TipoUsuario = new TipoUsuariosDomain();
+        }
     }
 }

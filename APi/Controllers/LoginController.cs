@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Domains;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Senai.InLock.WebApi.Interfaces;
+using Senai.InLock.WebApi.Repositories;
 using Senai.InLock.WebApi.ViewModel;
 
 namespace Senai.InLock.WebApi.Controllers
@@ -34,7 +36,7 @@ namespace Senai.InLock.WebApi.Controllers
         public IActionResult Post(LoginViewModel login)
         {
 
-            UsuariosDomain usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(login.Email, login.Senha);
+            UsuariosDomain usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(login);
 
 
             if (usuarioBuscado == null)
@@ -52,15 +54,15 @@ namespace Senai.InLock.WebApi.Controllers
             };
 
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("peoples-chave-autenticacao"));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("inlock-chave-autenticacao"));
 
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 
             var token = new JwtSecurityToken(
-                issuer: "Peoples.WebApi",
-                audience: "Peoples.WebApi",
+                issuer: "InLock.WebApi",
+                audience: "InLock.WebApi",
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds

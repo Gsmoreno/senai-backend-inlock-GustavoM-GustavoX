@@ -4,11 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domains;
 using Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Senai.InLock.WebApi.Repositories;
 
 namespace Senai.InLock.WebApi.Controllers
 {
+
+    [Produces("application/json")]
+
+
+    [Route("api/[controller]")]
+
+
+    [ApiController]
+    [Authorize]
     public class JogosController : Controller
     {
         private IJogosRepository _jogosRepository { get; set; }
