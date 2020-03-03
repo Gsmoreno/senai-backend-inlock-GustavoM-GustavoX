@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace $safeprojectname$
+namespace senai.Peoples.WebApi
 {
     public class Program
     {

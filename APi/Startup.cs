@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-namespace $safeprojectname$
+namespace senai.Peoples.WebApi
 {
     public class Startup
     {

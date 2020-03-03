@@ -10,6 +10,8 @@ namespace Repositories
 {
     public class EstudiosRepository : IEstudiosRepository
     {
+        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Peoples; user Id=sa; pwd=sa@132";
+
         public void Cadastrar(EstudiosDomain novoEstudio)
         {
             
@@ -20,7 +22,7 @@ namespace Repositories
             List<EstudiosDomain> estudios = new List<EstudiosDomain>();
 
            
-            using (SqlConnection con = new SqlConnection(StringConexao))
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 
                 string querySelectAll = "SELECT IdEstudio, NomeEstudio FROM Estudios";
