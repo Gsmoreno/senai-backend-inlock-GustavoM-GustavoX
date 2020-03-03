@@ -12,6 +12,32 @@ namespace Senai.InLock.WebApi.Repositories
     {
         private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Peoples; user Id=sa; pwd=sa@132";
 
+        public void Cadastrar(UsuariosDomain novoUsuario)
+        {
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+
+                string queryInsert = "INSERT INTO Usuarios(Email, Senha, IdTipoUsuario) " +
+                                     "VALUES (@Email, @Senha, @IdTipoUsuario)";
+
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@Email", novoUsuario.Email);
+                    cmd.Parameters.AddWithValue("@Senha", novoUsuario.Senha);
+                    cmd.Parameters.AddWithValue("@IdTipoUsuario", novoUsuario.IdTipoUsuario);
+
+
+                    con.Open();
+
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public List<UsuariosDomain> Listar()
         {
             List<UsuariosDomain> usuarios = new List<UsuariosDomain>();

@@ -9,5 +9,7 @@ namespace Senai.InLock.WebApi.Interfaces
     interface IUsuarioRepository
     {
         List<UsuariosDomain> Listar();
+
+        void Cadastrar(UsuariosDomain novoUsuario);
     }
 }
