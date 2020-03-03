@@ -12,6 +12,7 @@ namespace Interfaces
     {
 
         List<EstudiosDomain> Listar();
+
         void Cadastrar(EstudiosDomain novoEstudio);
     }
 }

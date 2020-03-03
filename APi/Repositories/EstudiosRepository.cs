@@ -14,56 +14,77 @@ namespace Repositories
 
         public void Cadastrar(EstudiosDomain novoEstudio)
         {
-            
-        }
-
-        public List<EstudiosDomain> Listar()
-        {
-            List<EstudiosDomain> estudios = new List<EstudiosDomain>();
-
-           
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                
-                string querySelectAll = "SELECT IdEstudio, NomeEstudio FROM Estudios";
 
-            
-                con.Open();
+                string queryInsert = "INSERT INTO Estudios(NomeEstudio) " +
+                                     "VALUES (@NomeEstudio)";
 
-                
-                SqlDataReader rdr;
 
-               
-                using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
 
-                    
-                    rdr = cmd.ExecuteReader();
+                    cmd.Parameters.AddWithValue("@NomeEstudio", novoEstudio.NomeEstudio);
 
-                    
-                    while (rdr.Read())
-                    {
-                       
-                        EstudiosDomain estudio= new EstudiosDomain
-                        {
-                            
-                            IdEstudio = Convert.ToInt32(rdr["Idestudio"])
+                    con.Open();
 
-                           
-                            ,
-                            NomeEstudio = rdr[1].ToString()
 
-                         
-                            
-                        };
-
-                       
-                        estudios.Add(estudio);
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
-            
-            return estudios;
         }
+
+            public List<EstudiosDomain> Listar()
+            {
+                List<EstudiosDomain> estudios = new List<EstudiosDomain>();
+
+
+                using (SqlConnection con = new SqlConnection(stringConexao))
+                {
+
+                    string querySelectAll = "SELECT IdEstudio, NomeEstudio FROM Estudios";
+
+
+                    con.Open();
+
+
+                    SqlDataReader rdr;
+
+
+                    using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                    {
+
+
+                        rdr = cmd.ExecuteReader();
+
+
+                        while (rdr.Read())
+                        {
+
+                            EstudiosDomain estudio = new EstudiosDomain
+                            {
+
+                                IdEstudio = Convert.ToInt32(rdr["Idestudio"])
+
+
+                                ,
+                                NomeEstudio = rdr[1].ToString()
+
+
+
+                            };
+
+
+                            estudios.Add(estudio);
+                        }
+                    }
+                }
+
+                return estudios;
+            }
+
+        
     }
 }
+
+
