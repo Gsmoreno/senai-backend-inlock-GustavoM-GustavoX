@@ -11,11 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-<<<<<<< HEAD
-namespace Senai.InLock.WebApi
-=======
+
+
+
 namespace senai.Peoples.WebApi
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
+
 {
     public class Startup
     {

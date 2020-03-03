@@ -1,9 +1,8 @@
 ﻿using Domains;
 using Senai.InLock.WebApi.Interfaces;
-<<<<<<< HEAD
+
 using Senai.InLock.WebApi.ViewModel;
-=======
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
+
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,8 +13,8 @@ namespace Senai.InLock.WebApi.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-<<<<<<< HEAD
-        private string stringConexao = "Data Source=DEV15\\SQLEXPRESS; initial catalog=InLock_Games_Tarde ;user Id=sa; pwd=sa@132";
+
+        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=InLock_Games_Tarde ;user Id=sa; pwd=sa@132";
 
         public UsuariosDomain BuscarPorEmailSenha(LoginViewModel login)
         {
@@ -30,9 +29,9 @@ namespace Senai.InLock.WebApi.Repositories
 
                     SqlDataReader rdr = cmd.ExecuteReader();
 
-                    if(rdr.HasRows)
+                    if (rdr.HasRows)
                     {
-                        while(rdr.Read())
+                        while (rdr.Read())
                         {
                             UsuariosDomain user = new UsuariosDomain
                             {
@@ -51,91 +50,92 @@ namespace Senai.InLock.WebApi.Repositories
                         }
                     }
                     return null;
-=======
-        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Peoples; user Id=sa; pwd=sa@132";
 
-        public void Cadastrar(UsuariosDomain novoUsuario)
-        {
-
-            using (SqlConnection con = new SqlConnection(stringConexao))
-            {
-
-                string queryInsert = "INSERT INTO Usuarios(Email, Senha, IdTipoUsuario) " +
-                                     "VALUES (@Email, @Senha, @IdTipoUsuario)";
-
-
-                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
-                {
-
-                    cmd.Parameters.AddWithValue("@Email", novoUsuario.Email);
-                    cmd.Parameters.AddWithValue("@Senha", novoUsuario.Senha);
-                    cmd.Parameters.AddWithValue("@IdTipoUsuario", novoUsuario.IdTipoUsuario);
-
-
-                    con.Open();
-
-
-                    cmd.ExecuteNonQuery();
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
                 }
             }
         }
 
-        public List<UsuariosDomain> Listar()
-        {
-            List<UsuariosDomain> usuarios = new List<UsuariosDomain>();
-
-
-            using (SqlConnection con = new SqlConnection(stringConexao))
-            {
-
-                string querySelectAll = "SELECT IdUsuario, Email, Senha, IdTipoUsuario FROM Usuarios";
-
-
-                con.Open();
-
-
-                SqlDataReader rdr;
-
-
-                using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                public void Cadastrar(UsuariosDomain novoUsuario)
                 {
 
-
-                    rdr = cmd.ExecuteReader();
-
-
-                    while (rdr.Read())
+                    using (SqlConnection con = new SqlConnection(stringConexao))
                     {
 
-                        UsuariosDomain usuario = new UsuariosDomain
+                        string queryInsert = "INSERT INTO Usuarios(Email, Senha, IdTipoUsuario) " +
+                                             "VALUES (@Email, @Senha, @IdTipoUsuario)";
+
+
+                        using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                         {
 
-                            IdUsuario = Convert.ToInt32(rdr["IdUsuario"])
+                            cmd.Parameters.AddWithValue("@Email", novoUsuario.Email);
+                            cmd.Parameters.AddWithValue("@Senha", novoUsuario.Senha);
+                            cmd.Parameters.AddWithValue("@IdTipoUsuario", novoUsuario.IdTipoUsuario);
 
 
-                            ,
-<<<<<<< HEAD
-                            Email = rdr["Email"].ToString(),
-                            Senha = rdr["Senha"].ToString(),
-=======
-                            Email = rdr["@Email"].ToString(),
-                            Senha = rdr["@Senha"].ToString(),
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
-                            IdTipoUsuario = Convert.ToInt32(rdr["IdTipoUsuario"])
+                            con.Open();
 
 
+                            cmd.ExecuteNonQuery();
 
-                        };
-
-
-                        usuarios.Add(usuario);
+                        }
                     }
                 }
-            }
 
-            return usuarios;
-        }
+                public List<UsuariosDomain> Listar()
+                {
+                    List<UsuariosDomain> usuarios = new List<UsuariosDomain>();
+
+
+                    using (SqlConnection con = new SqlConnection(stringConexao))
+                    {
+
+                        string querySelectAll = "SELECT U.IdUsuario, U.Email , U.Senha , U.IdTipoUsuario, T.Titulo FROM Usuarios U INNER JOIN" +
+                    " TipoUsuarios T ON U.IdTipoUsuario = T.IdTipoUsuario";
+
+
+                        con.Open();
+
+
+                        SqlDataReader rdr;
+
+
+                        using (SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                        {
+
+
+                            rdr = cmd.ExecuteReader();
+
+
+                            while (rdr.Read())
+                            {
+
+                                UsuariosDomain usuario = new UsuariosDomain
+                                {
+
+                                    IdUsuario = Convert.ToInt32(rdr["IdUsuario"]),
+                                    Email = rdr["Email"].ToString(),
+                                    Senha = rdr["Senha"].ToString(),
+                                    IdTipoUsuario = Convert.ToInt32(rdr["IdTipoUsuario"]),
+                                    TipoUsuario =
+                                    {
+                                        IdTipoUsuario = Convert.ToInt32(rdr["IdTipoUsuario"]),
+                                        Titulo = rdr["Titulo"].ToString()
+
+                                    }
+
+
+
+                                };
+
+
+                                usuarios.Add(usuario);
+                            }
+                        }
+                    }
+
+                    return usuarios;
+                }
     }
 }
 

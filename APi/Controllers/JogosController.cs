@@ -34,6 +34,7 @@ namespace Senai.InLock.WebApi.Controllers
             return Ok(_jogosRepository.Listar());
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(JogosDomain novoJogo)
         {

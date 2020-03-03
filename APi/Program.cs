@@ -7,12 +7,10 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Senai.InLock.WebApi;
 
-<<<<<<< HEAD
-namespace Senai.InLock.WebApi
-=======
 namespace senai.Peoples.WebApi
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
+
 {
     public class Program
     {

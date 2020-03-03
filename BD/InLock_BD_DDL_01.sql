@@ -28,3 +28,5 @@ Email VARCHAR (255) UNIQUE,
 Senha VARCHAR (255) NOT NULL,
 IdTipoUsuario  INT FOREIGN KEY REFERENCES TipoUsuarios (IdTipoUsuario)
 );
+
+SELECT J.IdJogo, J.NomeJogo , J.Descricao , J.DataLancamento , J.Valor ,  E.NomeEstudio, J.IdEstudio FROM Jogos  J LEFT JOIN Estudios E on E.IdEstudio = J.IdEstudio

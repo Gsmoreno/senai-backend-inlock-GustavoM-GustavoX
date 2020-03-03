@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-=======
 using Domains;
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
+
+using Domains;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.InLock.WebApi.Interfaces;
@@ -34,8 +34,7 @@ namespace Senai.InLock.WebApi.Controllers
         {
             return Ok(_usuarioRepository.Listar());
         }
-<<<<<<< HEAD
-=======
+
 
         
         [HttpPost]
@@ -49,6 +48,6 @@ namespace Senai.InLock.WebApi.Controllers
             
             return Created("http://localhost:5000/api/Usuarios", novoUsuario);
         }
->>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
+
     }
 }

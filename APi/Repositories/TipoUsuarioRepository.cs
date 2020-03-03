@@ -11,7 +11,7 @@ namespace Senai.InLock.WebApi.Repositories
     public class TipoUsuarioRepository : ITipoUsuarioRepository
     {
 
-        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Peoples; user Id=sa; pwd=sa@132";
+        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=InLock_Games_Tarde ;user Id=sa; pwd=sa@132";
 
         public List<TipoUsuariosDomain> Listar()
         {
@@ -47,7 +47,7 @@ namespace Senai.InLock.WebApi.Repositories
 
 
                             ,
-                            Titulo = rdr["@Titulo"].ToString()
+                            Titulo = rdr["Titulo"].ToString()
 
 
 
