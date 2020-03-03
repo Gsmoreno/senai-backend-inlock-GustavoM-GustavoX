@@ -10,9 +10,30 @@ namespace Repositories
 {
     public class EstudiosRepository : IEstudiosRepository
     {
+        private string stringConexao = "Data Source=DEV15\\SQLEXPRESS\\SQLDEVELOPER; initial catalog=InLock_Games_Tarde; integrated security=true;";
+
         public void Cadastrar(EstudiosDomain novoEstudio)
         {
-            
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+               
+                string queryInsert = "INSERT INTO Estudios(NomeEstudio) VALUES (@NomeEstudio)";
+
+                
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                  
+                    cmd.Parameters.AddWithValue("@NomeEstudio", novoEstudio.NomeEstudio);
+                    
+
+                    
+                    con.Open();
+
+                   
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
         }
 
         public List<EstudiosDomain> Listar()
@@ -20,7 +41,7 @@ namespace Repositories
             List<EstudiosDomain> estudios = new List<EstudiosDomain>();
 
            
-            using (SqlConnection con = new SqlConnection(StringConexao))
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 
                 string querySelectAll = "SELECT IdEstudio, NomeEstudio FROM Estudios";

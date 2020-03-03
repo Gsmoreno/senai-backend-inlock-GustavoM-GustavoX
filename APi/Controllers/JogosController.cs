@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Domains;
 using Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
-
+using Senai.InLock.WebApi.Repositories;
 
 namespace Senai.InLock.WebApi.Controllers
 {

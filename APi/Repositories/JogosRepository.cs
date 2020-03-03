@@ -10,8 +10,11 @@ namespace Senai.InLock.WebApi.Repositories
 {
     public class JogosRepository : IJogosRepository
     {
+        private string stringConexao = "Data Source=DEV15\\SQLEXPRESS\\SQLDEVELOPER; initial catalog=InLock_Games_Tarde; integrated security=true;";
+
         public void Cadastrar(JogosDomain novoJogo)
         {
+
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 

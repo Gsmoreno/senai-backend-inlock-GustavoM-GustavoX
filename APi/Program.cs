@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace $safeprojectname$
+namespace Senai.InLock.WebApi
 {
     public class Program
     {
