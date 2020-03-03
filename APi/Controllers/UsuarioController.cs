@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+<<<<<<< HEAD
+=======
+using Domains;
+>>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.InLock.WebApi.Interfaces;
@@ -30,5 +34,21 @@ namespace Senai.InLock.WebApi.Controllers
         {
             return Ok(_usuarioRepository.Listar());
         }
+<<<<<<< HEAD
+=======
+
+        
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Post(UsuariosDomain novoUsuario)
+        {
+            
+            _usuarioRepository.Cadastrar(novoUsuario);
+
+            
+            return Created("http://localhost:5000/api/Usuarios", novoUsuario);
+        }
+>>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
     }
 }

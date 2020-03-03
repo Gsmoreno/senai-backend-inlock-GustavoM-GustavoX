@@ -1,6 +1,9 @@
 ﻿using Domains;
 using Senai.InLock.WebApi.Interfaces;
+<<<<<<< HEAD
 using Senai.InLock.WebApi.ViewModel;
+=======
+>>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,6 +14,7 @@ namespace Senai.InLock.WebApi.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+<<<<<<< HEAD
         private string stringConexao = "Data Source=DEV15\\SQLEXPRESS; initial catalog=InLock_Games_Tarde ;user Id=sa; pwd=sa@132";
 
         public UsuariosDomain BuscarPorEmailSenha(LoginViewModel login)
@@ -47,6 +51,32 @@ namespace Senai.InLock.WebApi.Repositories
                         }
                     }
                     return null;
+=======
+        private string stringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Peoples; user Id=sa; pwd=sa@132";
+
+        public void Cadastrar(UsuariosDomain novoUsuario)
+        {
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+
+                string queryInsert = "INSERT INTO Usuarios(Email, Senha, IdTipoUsuario) " +
+                                     "VALUES (@Email, @Senha, @IdTipoUsuario)";
+
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@Email", novoUsuario.Email);
+                    cmd.Parameters.AddWithValue("@Senha", novoUsuario.Senha);
+                    cmd.Parameters.AddWithValue("@IdTipoUsuario", novoUsuario.IdTipoUsuario);
+
+
+                    con.Open();
+
+
+                    cmd.ExecuteNonQuery();
+>>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
                 }
             }
         }
@@ -85,8 +115,13 @@ namespace Senai.InLock.WebApi.Repositories
 
 
                             ,
+<<<<<<< HEAD
                             Email = rdr["Email"].ToString(),
                             Senha = rdr["Senha"].ToString(),
+=======
+                            Email = rdr["@Email"].ToString(),
+                            Senha = rdr["@Senha"].ToString(),
+>>>>>>> cbfcb0183feaad0320512b3ebcef5d27bddd47d9
                             IdTipoUsuario = Convert.ToInt32(rdr["IdTipoUsuario"])
 
 
