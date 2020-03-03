@@ -45,7 +45,7 @@ namespace Repositories
                         EstudiosDomain estudio= new EstudiosDomain
                         {
                             
-                            IdEstudio = Convert.ToInt32(rdr["Idestudio"])
+                            IdEstudio = Convert.ToInt32(rdr["IdEstudio"])
 
                            
                             ,
